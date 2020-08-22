@@ -13,7 +13,8 @@ DOC=doc
 $(BINDIR)/%.class:$(SRCDIR)/%.java
 	javac -d $(BINDIR)/ -cp $(BINDIR) $<
 	
-CLASSES=SerialRunner.class
+CLASSES=Basin.class \
+		SerialRunner.class
 
 CLASS_FILES=$(CLASSES:%.class=$(BINDIR)/%.class)
 
