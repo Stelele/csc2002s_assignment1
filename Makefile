@@ -2,13 +2,14 @@
 # Gift Mugweni
 # 22 February 2020
 
-JAVAC=/usr/bin/javac
-JAVADOC=/usr/bin/javadoc
+# The top level directory
+rootdir = .
+
 .SUFFIXES: .java .class
 SRCDIR=src
 BINDIR=bin
 OUTDIR=output
-DOC=doc
+OUTDOCS=docs
 
 $(BINDIR)/%.class:$(SRCDIR)/%.java
 	javac -d $(BINDIR)/ -cp $(BINDIR) $<
@@ -24,4 +25,5 @@ clean:
 	rm $(BINDIR)/*.class
 
 doc:
-	javadoc -d $(DOC)/ $(SRCDIR)/*.java
+	rm $(OUTDOCS)/*
+	javadoc -d $(OUTDOCS)/ $(SRCDIR)/*.java $<

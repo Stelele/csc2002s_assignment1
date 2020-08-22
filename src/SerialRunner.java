@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * SerialRunner
+ * SerialRunner 
+ * Implements running in serial
  */
 public class SerialRunner {
 
