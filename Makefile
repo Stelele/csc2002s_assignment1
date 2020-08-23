@@ -24,6 +24,7 @@ default: $(CLASS_FILES)
 
 clean:
 	rm $(BINDIR)/*.class
+	rm $(OUTDIR)/*.csv
 
 doc:
 	rm $(OUTDOCS)/*
