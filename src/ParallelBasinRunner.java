@@ -15,7 +15,7 @@ public class ParallelBasinRunner {
 	}
 
     static ArrayList<Basin> findBasins(float[][] mountain){
-        return fjPool.invoke(new ParallelBasinClassify(mountain, 1, mountain.length - 1, 1, mountain[0].length));
+        return fjPool.invoke(new ParallelBasinClassify(mountain, 1, mountain.length - 1, 1, mountain[0].length - 1));
     }
 
     public static void main(String[] args) {

@@ -25,7 +25,7 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
     }
 
     protected ArrayList<Basin> compute(){
-        if(((rowEnd - rowStart) < SEQUENTIAL_CUTOFF) &&  ((colEnd - colStart) < SEQUENTIAL_CUTOFF)){
+        if(((rowEnd - rowStart) <= SEQUENTIAL_CUTOFF) &&  ((colEnd - colStart) <= SEQUENTIAL_CUTOFF)){
             for(int i = rowStart; i < rowEnd; i++){
                 for(int j = colStart; j < colEnd; j++){
                     float offsetedValue = mountain[i][j] + OFFSET;
@@ -50,6 +50,7 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
                     basins.add(new Basin(i, j));
                 }
             }
+            return basins;
         } else {
             int midRow = (rowStart + rowEnd)/2;
             int midCol = (colStart + colEnd)/2;
@@ -67,8 +68,10 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
             basins.addAll(topLeft.join());
             basins.addAll(topRight.join());
             basins.addAll(bottomLeft.join());
+
+            return basins;
         }
 
-        return basins;
+        
     }
 }

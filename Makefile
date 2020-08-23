@@ -1,10 +1,8 @@
 # Assignment 1 Makefile
 # Gift Mugweni
-# 22 February 2020
+# 23 August 2020
 
 # The top level directory
-rootdir = .
-
 .SUFFIXES: .java .class
 SRCDIR=src
 BINDIR=bin
@@ -15,7 +13,9 @@ $(BINDIR)/%.class:$(SRCDIR)/%.java
 	javac -d $(BINDIR)/ -cp $(BINDIR) $<
 	
 CLASSES=Basin.class \
-		SerialRunner.class
+		SerialRunner.class \
+		ParallelBasinClassify.class \
+		ParallelBasinRunner.class
 
 CLASS_FILES=$(CLASSES:%.class=$(BINDIR)/%.class)
 
