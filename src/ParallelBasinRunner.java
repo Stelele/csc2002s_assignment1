@@ -1,7 +1,7 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.concurrent.ForkJoinPool;
 
 public class ParallelBasinRunner {
@@ -18,7 +18,7 @@ public class ParallelBasinRunner {
             String[] expectedBasins = HelperMethods.loadExpectedBasins(args[1]);
 
             HashMap<String,ArrayList<Float>> storedTimesForDifferentCutoffs = new HashMap<String, ArrayList<Float>>();
-            int maxSequentialCutoff = 3;
+            int maxSequentialCutoff = 100;
             int averageRuns = 3; 
 
             boolean checkGetExpectedOutput = false;
@@ -44,14 +44,20 @@ public class ParallelBasinRunner {
                     break;
             }
 
-            
-
             if(!checkGetExpectedOutput)
                 System.out.println("Results don't match expected");
-            else 
+            else{ 
                 System.out.println("Results match expected output");
 
+                String[] filePath = args[1].split("/");
+                String newFileName = filePath[filePath.length -1].split("\\.")[0];
+                
+                HelperMethods.writeToCSVFile(storedTimesForDifferentCutoffs, String.format("../output/%s.csv",newFileName));         
+            }
+            
         } catch(FileNotFoundException e){
+            System.err.println(e);
+        } catch(IOException e){
             System.err.println(e);
         }
     }

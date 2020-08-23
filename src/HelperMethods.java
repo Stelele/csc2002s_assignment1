@@ -76,7 +76,9 @@ public class HelperMethods {
 
             float averageTime = sum/testingResults.get(sequentialCutoff).size();
 
-            writer.write(sequentialCutoff + "," + Float.toString(averageTime) + "\n");
+            writer.append(sequentialCutoff + "," + Float.toString(averageTime) + "\n");
         }
+
+        writer.close();
     }
 }
