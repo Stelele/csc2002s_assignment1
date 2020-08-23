@@ -13,6 +13,7 @@ $(BINDIR)/%.class:$(SRCDIR)/%.java
 	javac -d $(BINDIR)/ -cp $(BINDIR) $<
 	
 CLASSES=Basin.class \
+		HelperMethods.class \
 		SerialRunner.class \
 		ParallelBasinClassify.class \
 		ParallelBasinRunner.class
