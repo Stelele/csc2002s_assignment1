@@ -9,7 +9,7 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
     int rowStart;
     int rowEnd;
     float[][] mountain;
-    static final int SEQUENTIAL_CUTOFF = 1;
+    static  int SEQUENTIAL_CUTOFF = 1;
     static final float OFFSET = 0.01f;
 
     ArrayList<Basin> basins;

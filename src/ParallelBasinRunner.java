@@ -6,7 +6,8 @@ import java.util.concurrent.ForkJoinPool;
 public class ParallelBasinRunner {
     static final ForkJoinPool fjPool = new ForkJoinPool();
     
-    static ArrayList<Basin> findBasins(float[][] mountain){
+    static ArrayList<Basin> findBasins(float[][] mountain, int sequentialCutoff ){
+        ParallelBasinClassify.SEQUENTIAL_CUTOFF = sequentialCutoff;
         return fjPool.invoke(new ParallelBasinClassify(mountain, 1, mountain.length - 1, 1, mountain[0].length - 1));
     }
 
@@ -15,7 +16,7 @@ public class ParallelBasinRunner {
             float[][] mountain = HelperMethods.loadMountainInputData(args[0]);
             String[] expectedBasins = HelperMethods.loadExpectedBasins(args[1]);
 
-            ArrayList<Basin> basins = findBasins(mountain);
+            ArrayList<Basin> basins = findBasins(mountain, 1);
 
             System.out.println(basins.size());
             for(Basin foundBasin : basins){
