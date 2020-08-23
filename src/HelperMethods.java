@@ -1,5 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class HelperMethods {
@@ -45,5 +50,33 @@ public class HelperMethods {
         reader.close();
 
         return basins;
+    }
+
+    static boolean checkMatchingResults(String[] expectedBasins, ArrayList<Basin> foundBasins){
+        boolean match = true;
+
+        for(Basin foundBasin : foundBasins){
+            if(!Arrays.asList(expectedBasins).contains(foundBasin.toString())){
+                match = false;
+                break;
+            }
+        }
+
+        return match;
+    }
+
+    static void writeToCSVFile(HashMap<String, ArrayList<Float>> testingResults, String newFileName) throws IOException{
+        FileWriter writer = new FileWriter(newFileName);
+
+        for(String sequentialCutoff : testingResults.keySet()){
+            float sum = 0f;
+
+            for(float val : testingResults.get(sequentialCutoff))
+                sum += val;
+
+            float averageTime = sum/testingResults.get(sequentialCutoff).size();
+
+            writer.write(sequentialCutoff + "," + Float.toString(averageTime) + "\n");
+        }
     }
 }
