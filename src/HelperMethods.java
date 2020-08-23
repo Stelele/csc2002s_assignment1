@@ -13,8 +13,8 @@ public class HelperMethods {
 		return System.currentTimeMillis();
     }
     
-	static float tock(long startTime){
-		return (System.currentTimeMillis() - startTime) / 1000.0f; 
+	static double tock(long startTime){
+		return (System.currentTimeMillis() - startTime) / 1000.0; 
 	}
 
     static float[][] loadMountainInputData(String inputFileLocation) throws FileNotFoundException{
@@ -65,18 +65,18 @@ public class HelperMethods {
         return match;
     }
 
-    static void writeToCSVFile(HashMap<String, ArrayList<Float>> testingResults, String newFileName) throws IOException{
+    static void writeToCSVFile(HashMap<String, ArrayList<Double>> testingResults, String newFileName) throws IOException{
         FileWriter writer = new FileWriter(newFileName);
 
         for(String sequentialCutoff : testingResults.keySet()){
-            float sum = 0f;
+            double sum = 0;
 
-            for(float val : testingResults.get(sequentialCutoff))
+            for(double val : testingResults.get(sequentialCutoff))
                 sum += val;
 
-            float averageTime = sum/testingResults.get(sequentialCutoff).size();
+            double averageTime = sum/testingResults.get(sequentialCutoff).size();
 
-            writer.append(sequentialCutoff + "," + Float.toString(averageTime) + "\n");
+            writer.append(sequentialCutoff + "," + Double.toString(averageTime) + "\n");
         }
 
         writer.close();
