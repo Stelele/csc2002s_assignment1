@@ -4,15 +4,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ForkJoinPool;
 
+/**
+ * Runner class for parallel implementation that stores main method
+ */
 public class ParallelBasinRunner {
     static final ForkJoinPool fjPool = new ForkJoinPool();
     
+    /**
+     * Entry point for parallel solution that runs
+     * @param mountain 2d array contain input terrain data
+     * @param sequentialCutoff the value you want to set your sequential cutoff to for the run
+     * @return basins list of all found basins
+     */
     static ArrayList<Basin> findBasins(float[][] mountain, int sequentialCutoff ){
         ParallelBasinClassify.SEQUENTIAL_CUTOFF = sequentialCutoff;
         ParallelBasinClassify.threadNumbers = 0;
         return fjPool.invoke(new ParallelBasinClassify(mountain, 1, mountain.length - 1, 1, mountain[0].length - 1));
     }
 
+    /**
+     * 
+     * @param args[0] location of input terrain data
+     * @param args[1] location of expected basins data
+     */
     public static void main(String[] args) {
         try{
             float[][] mountain = HelperMethods.loadMountainInputData(args[0]);
@@ -31,7 +45,10 @@ public class ParallelBasinRunner {
                 storedTimesForDifferentCutoffs.put(cutoffValStr, new ArrayList<Double>());
 
                 for(int i = 0; i < averageRuns; i++){
+
                     System.gc();
+
+                    //timed module
                     long startTime = HelperMethods.tick();
                     basins = findBasins(mountain, sequentialCutoff);
                     double runTime = HelperMethods.tock(startTime);
@@ -43,7 +60,9 @@ public class ParallelBasinRunner {
 
                     storedTimesForDifferentCutoffs.get(cutoffValStr).add(runTime);
                 }
-                System.out.println( String.format("%d,%d",sequentialCutoff, ParallelBasinClassify.threadNumbers));
+
+                //comment back in line if you want to know number of threads used for each sequentialCutoff value
+                //System.out.println(String.format("For sequentialCutoff : %d, Threads used : %d", sequentialCutoff, ParallelBasinClassify.threadNumbers));
 
                 if(!checkGetExpectedOutput)
                     break;

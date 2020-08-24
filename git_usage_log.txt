@@ -1,0 +1,107 @@
+commit cb555419faa23dff20b5382614e102ab3cab19d8
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Mon Aug 24 02:12:53 2020 +0200
+
+    Added variable that counts the number of threads used when running code
+
+commit 6d53253eeb23084b3476dc924f797075e668e1d7
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 21:55:05 2020 +0200
+
+    changed timining module to use double data types and run garbage collector before timing
+
+commit 56ae95104c32cbd1738fa96d7b840bc7fe85c370
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 05:16:58 2020 +0200
+
+    removed compiled files
+
+commit e32598241dff92cd819c7748627a78c02cb74cf0
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 05:13:47 2020 +0200
+
+    added timing to serial module
+
+commit 158a11e7070e9dbadbefd8256c49a652f8a81d10
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 04:45:43 2020 +0200
+
+    finished implementing timining module
+
+commit af3c8ba63ccd1d1417ed5920454106e42efed359
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 04:16:36 2020 +0200
+
+    Adding code to time modules
+
+commit 18ffde67d5ee9a070c4a72f3dabdcaae294b6515
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 03:12:00 2020 +0200
+
+    modified code to allow for selection of sequential cuttoff
+
+commit 9accb79841e59caf1655eb7fa3a4d5df00165066
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 02:54:46 2020 +0200
+
+    moved helper methods to separate class
+
+commit 4c294b2bb2bf2e04e3f9affcab34ce338c850308
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 02:16:51 2020 +0200
+
+    refactoring
+
+commit 35cf79c22444ced51eb148936188263754d548f4
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 02:14:15 2020 +0200
+
+    implemented map algorithim for parallel program
+
+commit 6164f831cbcd813a1aeaffa1402598334505c064
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 01:52:41 2020 +0200
+
+    implemented fork join framework for parrallel processing
+
+commit d513442c6cd827a22c8886d6b2809ad51f08ac5e
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 01:36:52 2020 +0200
+
+    refactoring
+
+commit 6a03802e226ebbe28e98990bb5f537dfcf42b0ca
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sun Aug 23 01:36:17 2020 +0200
+
+    Added class that implements recursive tasks
+
+commit d7bbefacdd7506ba0da3ef7e2018595efa16c716
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sat Aug 22 23:18:14 2020 +0200
+
+    modified make file to create javadocs
+
+commit 7208241f614cf7bbe4d7aba9467060b5788f0c28
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sat Aug 22 23:04:39 2020 +0200
+
+    Finished writting serial implementation
+
+commit 4e71020aacd772427f7f57375724639ae1e8dad6
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sat Aug 22 22:31:06 2020 +0200
+
+    started implemented Serial implementation
+
+commit 4e35e856894578372580d7d11915fcb848ee2b9e
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sat Aug 22 20:04:43 2020 +0200
+
+    added makefile
+
+commit 4f3cd7a27075376279757a7e56587f4fad90dc1a
+Author: Stelele <giftmugweni@gmail.com>
+Date:   Sat Aug 22 20:57:41 2020 +0200
+
+    Initial commit

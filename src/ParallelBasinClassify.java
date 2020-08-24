@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.concurrent.RecursiveTask;
 
-import java.util.concurrent.RecursiveTask;
-
+/**
+ * Class that carries out the comparision operations necessary for comparision
+ */
 public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
     int colStart;
     int colEnd;
@@ -15,6 +16,14 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
 
     ArrayList<Basin> basins;
 
+    /**
+     * 
+     * @param mountain 2d array containing input terrain data
+     * @param rowStart row to start at
+     * @param rowEnd row to end at
+     * @param colStart column to start at
+     * @param colEnd column to end at
+     */
     public ParallelBasinClassify(float[][] mountain, int rowStart, int rowEnd, int colStart, int colEnd){
         this.mountain = mountain;
         this.rowStart = rowStart;
@@ -27,6 +36,9 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
         this.basins = new ArrayList<Basin>();
     }
 
+    /**
+     * Overwritten method for parallel processting
+     */
     protected ArrayList<Basin> compute(){
         if(((rowEnd - rowStart) <= SEQUENTIAL_CUTOFF) &&  ((colEnd - colStart) <= SEQUENTIAL_CUTOFF)){
             for(int i = rowStart; i < rowEnd; i++){
