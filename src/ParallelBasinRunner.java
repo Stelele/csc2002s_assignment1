@@ -9,6 +9,7 @@ public class ParallelBasinRunner {
     
     static ArrayList<Basin> findBasins(float[][] mountain, int sequentialCutoff ){
         ParallelBasinClassify.SEQUENTIAL_CUTOFF = sequentialCutoff;
+        ParallelBasinClassify.threadNumbers = 0;
         return fjPool.invoke(new ParallelBasinClassify(mountain, 1, mountain.length - 1, 1, mountain[0].length - 1));
     }
 
@@ -42,6 +43,7 @@ public class ParallelBasinRunner {
 
                     storedTimesForDifferentCutoffs.get(cutoffValStr).add(runTime);
                 }
+                System.out.println( String.format("%d,%d",sequentialCutoff, ParallelBasinClassify.threadNumbers));
 
                 if(!checkGetExpectedOutput)
                     break;

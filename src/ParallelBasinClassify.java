@@ -11,6 +11,7 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
     float[][] mountain;
     static  int SEQUENTIAL_CUTOFF = 1;
     static final float OFFSET = 0.01f;
+    static int threadNumbers = 0;
 
     ArrayList<Basin> basins;
 
@@ -20,6 +21,8 @@ public class ParallelBasinClassify extends RecursiveTask<ArrayList<Basin>> {
         this.rowEnd = rowEnd;
         this.colStart = colStart;
         this.colEnd = colEnd;
+
+        threadNumbers += 1;
 
         this.basins = new ArrayList<Basin>();
     }
